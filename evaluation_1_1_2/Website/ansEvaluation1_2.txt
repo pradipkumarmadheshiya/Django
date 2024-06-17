@@ -1,0 +1,11 @@
+1. Expand the Django Project with Additional Apps:
+Create a new app called Blogwithin the Website` project.
+Set up 'Blog' to manage blog-related content separately from the Main app.
+
+ans:- To Expand the Django project, created a new app called blog with the help of -:python manage.py startapp blog:-
+
+2. Configure URL Patterns for Multiple Apps:
+Update the main urls.py to include routing for the Blog app.
+Create specific URL patterns in the "Blog app's `urls.py file to handle blog-related requests.
+
+ans:- 
