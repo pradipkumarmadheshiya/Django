@@ -1,0 +1,33 @@
+1. Create and Register Models in the 'Blog App:
+Define a 'Post' model in the 'Blog' app with fields for 'title', "content', and `publish_date'.
+Apply migrations to update the database schema.
+
+ans: Defined the "posts" model in Models.py with postId, title and content. After that generated migration files with :python manage.py makemigrations blog: and After that applied migrations to update the database with :python manage.py migrate:
+
+2. Admin Interface Integration:
+Register the `Post' model with the Django admin site.
+Use the admin interface to add some sample blog posts.
+
+ans: Registered the "posts" model and added sample blog posts.
+
+3. Dynamic Content Display with URL Parameters:
+Update the 'Blog' app to:
+List all blog posts at '/blog/'.
+Display the details of a specific blog post using URL parameters (e.g., '/blog/id/").
+
+ans: In views.py implemented views List all blog posts using models.posts.objects.all() and Displayed the details of specific blog posts.
+
+4. Advanced URL Routing and View Techniques:
+Implement a view that uses URL reversing to generate dynamic links.
+Use named URL patterns and explore how they simplify link management in templates.
+
+ans: Implemented website2 urls.py to blog and also implemented blog urls.py to connect with views and other function. Created templates blogList.html and blogDetails.html to Display blog posts and details.
+
+5. Explain URL Routing and Views in Django:
+Write a brief overview of how Django's URL routing and views work together.
+Include examples of how URL patterns map to views and how views process and return responses.
+
+ans: URL Routing in Django is managed by the urls.py file. This file connects URLs to views and determining what code should be executed when a specific URL is accessed.
+
+Views in Django are responsible for handling requests and returning responses.
+
