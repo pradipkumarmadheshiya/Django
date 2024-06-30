@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+</head>
+<body>
+    <h1>All user List</h1>
+    <ol>
+        {% for user in users %}
+        <li>Name : {{user.name}}</li>
+        Email : {{user.email}}, 
+        Age : {{user.age}}, 
+        Gender : {{user.gender}}
+        <br><br>
+        {% endfor %}
+    </ol>
+</body>
+</html>
