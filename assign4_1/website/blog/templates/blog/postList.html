@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post List</title>
+</head>
+<body>
+    <h1>All Posts Lists :</h1>
+    {% for post in posts %}
+    <li>Title : {{post.title}}</li>
+    Content : {{post.content}}, Created At : {{post.createdAt | date:"m d"}}, Updated At : {{post.updatedAt}}
+    <br>
+    <a href="{% url 'PostUpdate' post.pk %}">Update this Post</a>
+    <br>
+    <a href="{% url 'PostDelete' post.pk %}">Delete this Post</a>
+    <br>
+    <a href="{{comments.id}}">Comments</a>
+    <br><br>
+    {% endfor %}
+    <a href="{% url 'PostCreate' %}">Create New Post</a>
+</body>
+</html>
