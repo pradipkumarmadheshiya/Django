@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+</head>
+<body>
+    <h1>All Book List</h1>
+    <ul>
+        {% for book in books %}
+        <li>Title : {{book.title}}</li>
+        Author : {{book.author}}, Published Date : {{book.published_date}} <br>
+        <a href="{{book.id}}">Author Detail</a> <br>
+        <a href="{% url 'BookUpdate' book.pk%}">Update Book</a> <br>
+        <a href="{% url 'BookDelete' book.pk%}">Delete Book</a>
+        <br><br>
+        {% endfor %}
+        <br>
+        <a href="{% url 'BookCreate' %}">Create Book</a>
+    </ul>
+</body>
+</html>
