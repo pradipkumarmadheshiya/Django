@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post List</title>
+</head>
+<body>
+    <h3>Post List</h3>
+
+    {% for post in posts %}
+
+    Title : {{post.title}} <br>
+    Description : {{post.description}} <br>
+    Created At : {{post.createdAt}} <br>
+    Author :  {{post.author}} <br>
+
+    <a href="{% url 'editPost' post.id %}">Edit Post</a> <br>
+    <a href="{% url 'postDetail' post.id %}">Post Detail</a> <br>
+    <a href="{% url 'postDelete' post.id %}">Post Delete</a><br><br>
+
+    {% endfor %} <br>
+
+    <a href="{% url 'createPost' %}">Create Post</a>
+</body>
+</html>
