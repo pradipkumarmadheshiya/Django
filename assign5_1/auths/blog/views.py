@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import CreateUser, CreatePost
+from .forms import CreateUser, CreatePost, CreateComment
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
@@ -76,14 +76,29 @@ def edit_post(request, id):
     return render(request, "blog/editPost.html", {"form":form})
 
 @login_required(login_url="/loginUser/")
-def post_detail(request,id):
+def post_detail(request, id):
     post=get_object_or_404(Post, id=id)
     return render(request, "blog/postDetail.html", {"post":post})
 
 @login_required(login_url="/loginUser/")
-def post_delete(request,id):
+def post_delete(request, id):
     post=get_object_or_404(Post, id=id)
     if post.author!=request.user:
         return HttpResponse("You are not allowed to delete this post")
     post.delete()
     return redirect("postList")
+
+@login_required(login_url="/loginUser/")
+def create_comment(request, id):
+    post=get_object_or_404(Post, id=id)
+    if request.method=="POST":
+        form=CreateComment(request.POST)
+        if form.is_valid():
+            comment=form.save(commit=False)
+            comment.post=post
+            comment.author=request.user
+            comment.save()
+            return redirect("postList")
+    else:
+        form=CreateComment()
+    return render(request, "blog/createComment.html", {"form":form})
