@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publisher Details</title>
+</head>
+<body>
+    <h1>Publisher Details</h1>
+    <ul>
+        {% for pub in publishers %}
+        <li><a href="{{pub.publisherId}}">Name: {{pub.name}}</a> Address: {{pub.address}}, City: {{pub.city}}</li>
+        <br>
+        {% endfor %}
+    </ul>
+</body>
+</html>

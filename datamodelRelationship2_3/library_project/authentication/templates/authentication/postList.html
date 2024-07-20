@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post List</title>
+</head>
+<body>
+    <h3>This is Post List Page</h3>
+    <a href="{% url 'logout' %}">LogOut</a> <br><br>
+
+    {% for post in posts %}
+    {{post.title}}, {{post.description}}, {{post.author}}, {{post.createdAt}} <br>
+    {% for comm in post.comment.all %} <br>
+    {{comm.description}}
+    {% endfor %} <br>
+    <a href="{% url 'editPost' post.id %}">Edit Post</a>
+    <br> <a href="{% url 'createComment' post.id %}">Create Comment</a>
+    <br>
+    {% endfor %}
+</body>
+</html>
